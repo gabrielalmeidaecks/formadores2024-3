@@ -52,7 +52,7 @@ body {
         border: var(--secundary-color) solid 2px;
       }
 
-      #graficos-container {
+      .graficos-container {
         margin: 5rem;
       }
 
