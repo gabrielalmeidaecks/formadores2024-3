@@ -1,4 +1,4 @@
-const url='https://raw.githubusercontent.com/silviosnjr/CienciaDeDados-CriandoGraficosDinamicosComJavaScript/refs/heads/Aula01/trabalho/trabalho-dados-gerais.json'
+const url='https://raw.githubusercontent.com/silviosnjr/CienciaDeDados-CriandoGraficosDinamicosComJavaScript/refs/heads/Aula01/educacao/educacao-dados-globais.json'
 
 async function vizualizarInformacoesGlobais() {
     const res = await fetch(url)
@@ -6,8 +6,10 @@ async function vizualizarInformacoesGlobais() {
     console.log(dados)
     const paragrafo = document.createElement('p')
     paragrafo.classList.add('graficos-container__texto')
-    paragrafo.innerHTML = `Você sabia que  do total de <span>${dados.total_pessoas_mundo}</span> de pessoas no mundo,  <span>${dados.total_pessoas_que_necessitam_transporte_para_trabalho}</span> são trabalhadores e aproximadamente 66% necessitam de transporte para ir ao trabalho?  E o tempo médio gasto para o deslocamento ao trabalho é de menos de <span>${dados.tempo_medio_deslocamento_para_trabalho}</span> por dia? Isso significa que eles destinam 3,75% do dia somente em deslocamento`
+    paragrafo.innerHTML = `Você sabia que o total de pessoas no mundo é de <span>${dados.total_pessoas_mundo}</span> de pessoas e que o  total de pessoas com acesso à educação é de <span>${dados.total_pessoas_com_acesso_a_educacao}</span>? O tempo médio gasto por dia estudando é de <span>${dados.tempo_medio_dia_estudando}</span> horas e o total de pessoas com educação superior é de <span>${dados.total_pessoas_com_educacao_superior}</span>.  Será que esses dados apontam para uma realidade de um mundo esclarecido e com facilidade de acesso à Educação?
+`
+    const container = document.getElementById('graficos-container')
     container.appendChild(paragrafo);
 }
-vizualizarInformacoesGlobais()
 
+vizualizarInformacoesGlobais()
