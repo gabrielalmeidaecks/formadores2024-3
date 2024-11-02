@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&display=swap');
 
 :root {
-  --bg-color: #373f6f;
-  --primary-color: #76ec9d;
-  --secundary-color: #FED8B1;
-  --font: Nunito Sans;
+  --bg-color: #536493;
+  --primary-color: #FFF1DB;
+  --secundary-color: #88C273;
+  --font: Gluten;
 }
 
 body {
