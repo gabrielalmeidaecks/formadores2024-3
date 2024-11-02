@@ -13,4 +13,3 @@ async function vizualizarInformacoesGlobais() {
 }
 
 vizualizarInformacoesGlobais()
-
