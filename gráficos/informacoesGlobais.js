@@ -1,13 +1,18 @@
-const url='const url='https://raw.githubusercontent.com/guilhermeonrails/api/main/dados-globais.json'
+const url='https://raw.githubusercontent.com/guilhermeonrails/api/main/dados-globais.json'
 
 async function vizualizarInformacoesGlobais() {
     const res = await fetch(url)
     const dados = await res.json()
-    console.log(dados)
+    const pessoasConectadas = (dados.total_pessoas_conectadas / 1e9)
+    const pessoasNoMundo = (dados.total_pessoas_mundo / 1e9)
+    const horas = parseInt(dados.tempo_medio)
+    const minutos = Math.round((dados.tempo_medio - horas) * 100)
+    const porcentagemConectada = ((pessoasConectadas / pessoasNoMundo) * 100).toFixed(2);
+
     const paragrafo = document.createElement('p')
     paragrafo.classList.add('graficos-container__texto')
-    paragrafo.innerHTML = `Você sabia que o total de pessoas no mundo é de <span>${dados.total_pessoas_mundo}</span> de pessoas e que o  total de pessoas com acesso à educação é de <span>${dados.total_pessoas_com_acesso_a_educacao}</span>? O tempo médio gasto por dia estudando é de <span>${dados.tempo_medio_dia_estudando}</span> horas e o total de pessoas com educação superior é de <span>${dados.total_pessoas_com_educacao_superior}</span>.  Será que esses dados apontam para uma realidade de um mundo esclarecido e com facilidade de acesso à Educação?
-`
+    paragrafo.innerHTML = `Você sabia que o mundo tem <span>${pessoasNoMundo}</span> bilhões de pessoas que aproximadamente <span>${pessoasConectadas}</span> bilhões estão conectadas em alguma rede social e passam em média <span>${horas} horas</span> e <span>${minutos} minutos</span> conectadas.<br>Isso significa que aproximadamente <span>${porcentagemConectada}%</span> pessoas conectadas em alguma rede social. `
+
     const container = document.getElementById('graficos-container')
     container.appendChild(paragrafo);
 }
