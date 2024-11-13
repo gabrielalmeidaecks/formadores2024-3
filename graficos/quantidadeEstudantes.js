@@ -1,5 +1,5 @@
 async function quantidadeEstudantes() {
-  https://raw.githubusercontent.com/silviosnjr/CienciaDeDados-CriandoGraficosDinamicosComJavaScript/refs/heads/Aula01/educacao/educacao-etapas-de-ensino.json
+const url = 'https://raw.githubusercontent.com/silviosnjr/CienciaDeDados-CriandoGraficosDinamicosComJavaScript/refs/heads/Aula01/educacao/educacao-etapas-de-ensino.json'
 const res = await fetch(url)
     const dados = await res.json()
     const nomeDasEscolas = Object.keys(dados)
@@ -15,5 +15,24 @@ const res = await fetch(url)
     grafico.className = 'grafico'
     document.getElementById('graficos-container').appendChild(grafico)
     Plotly.newPlot(grafico, data)
+}
+quantidadeEstudantes()
+async function quantidadeEstudantes() {
+  const url = 'https://raw.githubusercontent.com/silviosnjr/CienciaDeDados-CriandoGraficosDinamicosComJavaScript/refs/heads/Aula01/educacao/educacao-etapas-de-ensino.json'
+  const res = await fetch(url)
+  const dados = await res.json()
+  const nomeDasEscolas = Object.keys(dados)
+  const quantidadeEstudantes = Object.values(dados)
+  const data = [
+      {
+        x: nomeDasEscolas,
+        y: quantidadeEstudantes,
+        type: 'bar'
+      }
+    ]
+  const grafico = document.createElement('div')
+  grafico.className = 'grafico'
+  document.getElementById('graficos-container').appendChild(grafico)
+  Plotly.newPlot(grafico, data)
 }
 quantidadeEstudantes()
